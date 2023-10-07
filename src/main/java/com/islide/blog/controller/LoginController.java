@@ -21,8 +21,4 @@ public class LoginController {
         LoginSuccessDto login = authService.login(loginDto);
         return Result.success(login);
     }
-
-    public static void main(String[] args) {
-
-    }
 }
