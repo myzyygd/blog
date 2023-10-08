@@ -1,8 +1,47 @@
 server:
   port: 8083
 spring:
+  application:
+    name: blog
+  profiles:
+    active: test
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/blog?charset=utf8_general_ci
-    username: root
-    password: root
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/blog?charset=utf8_general_ci
+      username: root
+      password: root
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 60s
+    database: 0
+  redis4:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 60s
+    database: 4
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+---
+spring:
+  profiles: test
+
+---
+spring:
+  profiles: dev
+logging:
+  file:
+    name: "./sys.log"
