@@ -29,6 +29,9 @@ spring:
     port: 6379
     timeout: 60s
     database: 4
+  email:
+    host:
+    port:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
