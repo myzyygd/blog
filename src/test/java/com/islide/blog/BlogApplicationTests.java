@@ -18,13 +18,7 @@ class BlogApplicationTests {
     private DataSource dataSource;
     @Test
     void contextLoads() throws SQLException {
-        System.out.println(dataSource.getClass());
-        DruidDataSource druidDataSource = (DruidDataSource) dataSource;
-        System.out.println("initSize:" + druidDataSource.getInitialSize());
-        System.out.println("maxSize:" + druidDataSource.getMaxActive());
-        Connection connection = dataSource.getConnection();
-        System.out.println(connection);
-        connection.close();
+
     }
 
 }

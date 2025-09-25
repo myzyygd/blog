@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/doc.html", "/v2/**").permitAll()
-                .antMatchers("/login", "/index").anonymous()
+                .antMatchers("/login", "/index", "/test/**").anonymous()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
